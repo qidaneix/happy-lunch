@@ -11,7 +11,8 @@ export default class extends Service {
    */
   public async image(filepath: string) {
     const AIConfig = this.config.AIConfig;
-    const { data: { access_token: accessToken } } = await this.ctx.curl(AIConfig.tokenUrl, {
+    const { ctx, app } = this;
+    const { data: { access_token: accessToken } } = await ctx.curl(AIConfig.tokenUrl, {
       method: 'POST',
       contentType: 'application/x-www-form-urlencoded',
       dataType: 'json',
@@ -22,7 +23,7 @@ export default class extends Service {
       },
     });
     const imageBase64 = new Buffer(await fs.readFile(filepath)).toString('base64');
-    const { data: { person_num: personNum } } = await this.ctx.curl(AIConfig.AIUrl, {
+    const { data: { person_num: personNum } } = await ctx.curl(AIConfig.AIUrl, {
       method: 'POST',
       contentType: 'application/x-www-form-urlencoded',
       dataType: 'json',
@@ -31,6 +32,7 @@ export default class extends Service {
         image: imageBase64,
       },
     });
-    return personNum;
+    await (app as any).redis.set('personNum', personNum);
+    return await (app as any).redis.get('personNum');;
   }
 }

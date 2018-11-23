@@ -15,14 +15,22 @@ export default (appInfo: EggAppInfo): object  => {
       '.nj': 'nunjucks',
     },
   };
+  config.redis = {
+    client: {
+      port: 6379,          // Redis port
+      host: '182.254.213.162',   // Redis host
+      password: 'Xj10052124',
+      db: 0,
+    },
+  };
   config.multipart = {
     mode: 'file',
-  }
+  };
 
   // add your special config in here
   // 百度AI配置参数
   const AIConfig = {
-    AIUrl: 'https://aip.baidubce.com/rest/2.0/image-classify/v1/body_analysis',
+    AIUrl: 'https://aip.baidubce.com/rest/2.0/image-classify/v1/body_num',
     tokenUrl: 'https://aip.baidubce.com/oauth/2.0/token',
     grantType: 'client_credentials',
     clientId: 'WTQZro0FkEs4KnFWuuvGFIph',

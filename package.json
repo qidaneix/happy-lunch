@@ -7,10 +7,10 @@
     "typescript": true
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-happy-lunch",
+    "start": "egg-scripts start --daemon --sticky --title=egg-server-happy-lunch",
     "stop": "egg-scripts stop --title=egg-server-happy-lunch",
-    "dev": "egg-bin dev -r egg-ts-helper/register",
-    "debug": "egg-bin debug -r egg-ts-helper/register",
+    "dev": "egg-bin dev -r egg-ts-helper/register --sticky",
+    "debug": "egg-bin debug -r egg-ts-helper/register --sticky",
     "test-local": "egg-bin test -r egg-ts-helper/register",
     "test": "npm run lint -- --fix && npm run test-local",
     "cov": "egg-bin cov -r egg-ts-helper/register",
@@ -23,6 +23,7 @@
   "dependencies": {
     "@types/mz": "0.0.32",
     "egg": "^2.6.1",
+    "egg-redis": "^2.0.0",
     "egg-scripts": "^2.6.0",
     "egg-view-nunjucks": "^2.2.0",
     "mz": "^2.7.0"
