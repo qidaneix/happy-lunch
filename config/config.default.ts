@@ -23,6 +23,14 @@ export default (appInfo: EggAppInfo): object  => {
       db: 0,
     },
   };
+  config.io = {
+    namespace: {
+      '/': {
+        connectionMiddleware: [],
+        packetMiddleware: [],
+      },
+    },
+  };
   config.multipart = {
     mode: 'file',
   };

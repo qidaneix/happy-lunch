@@ -7,6 +7,16 @@ export default class HomeController extends Controller {
     await ctx.render('home/index.nj');
   }
 
+  public async init() {
+    const { ctx } = this;
+    await ctx.render('home/init.nj');
+  }
+
+  public async result() {
+    const { ctx, app } = this;
+    ctx.body = await (app as any).redis.get('personNum');;
+  }
+
   public async image() {
     const { ctx } = this;
     const file = (ctx.request as any).files[0];
