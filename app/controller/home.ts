@@ -12,9 +12,9 @@ export default class HomeController extends Controller {
     await ctx.render('home/init.nj');
   }
 
-  public async result() {
+  public async res() {
     const { ctx, app } = this;
-    ctx.body = await (app as any).redis.get('personNum');;
+    ctx.body = await app.redis.get('res');
   }
 
   public async image() {
