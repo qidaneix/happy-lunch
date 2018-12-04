@@ -15,10 +15,10 @@ export default (appInfo: EggAppInfo): object  => {
       '.nj': 'nunjucks',
     },
   };
-  config.redis = {
+  (config.redis as any) = {
     client: {
-      port: 6379,          // Redis port
-      host: '182.254.213.162',   // Redis host
+      port: 6379, // Redis port
+      host: '182.254.213.162', // Redis host
       password: 'Xj10052124',
       db: 0,
     },
