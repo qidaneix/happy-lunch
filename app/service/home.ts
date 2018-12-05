@@ -43,7 +43,7 @@ export default class extends Service {
       },
       msg: '',
     };
-    const AIConfig = this.config.AIConfig;
+    const AiConfig = this.config.AiConfig;
     const { ctx, app } = this;
     let accessToken: string|undefined = await app.redis.get('accessToken');
     if (!accessToken) {
@@ -57,7 +57,7 @@ export default class extends Service {
       }
     }
     const imageBase64 = (await fs.readFile(filepath)).toString('base64');
-    const { data } = await ctx.curl<Response<ResponseDataSuccess|ResponseDataFail>>(AIConfig.AIUrl, {
+    const { data } = await ctx.curl<Response<ResponseDataSuccess|ResponseDataFail>>(AiConfig.AiUrl, {
       method: 'POST',
       contentType: 'application/x-www-form-urlencoded',
       dataType: 'json',
