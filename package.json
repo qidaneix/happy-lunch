@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@types/mz": "0.0.32",
+    "dayjs": "^1.7.7",
     "egg": "^2.14.1",
     "egg-redis": "^2.2.0",
     "egg-scripts": "^2.6.0",
