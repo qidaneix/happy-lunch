@@ -37,8 +37,8 @@ export default (appInfo: EggAppInfo): object  => {
 
   // add your special config in here
   // 百度AI配置参数
-  const AIConfig = {
-    AIUrl: 'https://aip.baidubce.com/rest/2.0/image-classify/v1/body_num',
+  const aiConfig = {
+    AiUrl: 'https://aip.baidubce.com/rest/2.0/image-classify/v1/body_num',
     tokenUrl: 'https://aip.baidubce.com/oauth/2.0/token',
     grantType: 'client_credentials',
     clientId: 'WTQZro0FkEs4KnFWuuvGFIph',
@@ -48,6 +48,6 @@ export default (appInfo: EggAppInfo): object  => {
   // the return config will combines to EggAppConfig
   return {
     ...config,
-    AIConfig,
+    aiConfig,
   };
 };

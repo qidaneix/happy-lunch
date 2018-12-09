@@ -2,7 +2,7 @@
 // Do not modify this file!!!!!!!!!
 
 import 'egg';
-import ExportAccessToken from '../../../app/service/accessToken';
+import ExportAccessToken from '../../../app/service/access-token';
 import ExportHome from '../../../app/service/home';
 
 declare module 'egg' {
