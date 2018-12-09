@@ -12,7 +12,9 @@
   <script>
   axios.get('/res').then((resp) => { console.log(resp.data) });
   let socket = io();
-  socket.on('res', (msg) => console.log(msg));
+  socket.on('res', (msg) => {
+    console.log(msg);
+  });
   </script>
 </body>
 </html>
