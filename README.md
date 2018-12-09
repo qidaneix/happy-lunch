@@ -1,6 +1,6 @@
-# hackernews-async-ts
+# happy-lunch
 
-[Hacker News](https://news.ycombinator.com/) showcase using typescript && egg
+[妈妈再也不用担心我吃不上午饭了](http://lunch.xiaodabao.xyz/) showcase using typescript && egg
 
 ## QuickStart
 
