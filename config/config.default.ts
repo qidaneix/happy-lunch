@@ -8,6 +8,11 @@ export default (appInfo: EggAppInfo): object  => {
   config.keys = appInfo.name + '_1542440359581_7687';
 
   // add your egg config in here
+  config.security = {
+    csrf: {
+      ignore: '/image',
+    },
+  };
   config.middleware = [];
   config.view = {
     defaultViewEngine: 'nunjucks',
