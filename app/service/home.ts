@@ -1,5 +1,5 @@
-import { Service } from 'egg';
 import * as dayjs from 'dayjs';
+import { Service } from 'egg';
 import * as fs from 'mz/fs';
 
 interface Response<T = any> {
@@ -56,7 +56,7 @@ export default class extends Service {
       return this.handleResult(res);
     }
     // 百度AI
-    const AiConfig = this.config.AiConfig;
+    const aiConfig = this.config.aiConfig;
     const { ctx, app } = this;
     // 尝试从redis获取asccessToken
     let accessToken: string|undefined = await app.redis.get('accessToken');
@@ -73,7 +73,7 @@ export default class extends Service {
     }
     const imageBase64 = (await fs.readFile(filepath)).toString('base64');
     // 发起Ai请求
-    const { data } = await ctx.curl<Response<ResponseDataSuccess|ResponseDataFail>>(AiConfig.AiUrl, {
+    const { data } = await ctx.curl<Response<ResponseDataSuccess|ResponseDataFail>>(aiConfig.AiUrl, {
       method: 'POST',
       contentType: 'application/x-www-form-urlencoded',
       dataType: 'json',

@@ -7,10 +7,10 @@
     "typescript": true
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --sticky --title=egg-server-happy-lunch",
+    "start": "egg-scripts start --daemon --sticky --title=egg-server-happy-lunch --port=80 --env=prod",
     "stop": "egg-scripts stop --title=egg-server-happy-lunch",
-    "dev": "egg-bin dev -r egg-ts-helper/register --sticky",
-    "debug": "egg-bin debug -r egg-ts-helper/register --sticky",
+    "dev": "egg-bin dev -r egg-ts-helper/register --sticky --port 80",
+    "debug": "egg-bin debug -r egg-ts-helper/register --sticky --port 80",
     "test-local": "egg-bin test -r egg-ts-helper/register",
     "test": "npm run lint -- --fix && npm run test-local",
     "cov": "egg-bin cov -r egg-ts-helper/register",

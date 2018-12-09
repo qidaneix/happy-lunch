@@ -23,16 +23,16 @@ export default class extends Service {
    * @param void
    */
   public async get() {
-    const AiConfig = this.config.AiConfig;
+    const aiConfig = this.config.aiConfig;
     const { ctx, app } = this;
-    const { data } = await ctx.curl<Response<ResponseDataSuccess|ResponseDataFail>>(AiConfig.tokenUrl, {
+    const { data } = await ctx.curl<Response<ResponseDataSuccess|ResponseDataFail>>(aiConfig.tokenUrl, {
       method: 'POST',
       contentType: 'application/x-www-form-urlencoded',
       dataType: 'json',
       data: {
-        grant_type: AiConfig.grantType,
-        client_id: AiConfig.clientId,
-        client_secret: AiConfig.clientSecret,
+        grant_type: aiConfig.grantType,
+        client_id: aiConfig.clientId,
+        client_secret: aiConfig.clientSecret,
       },
     });
 
