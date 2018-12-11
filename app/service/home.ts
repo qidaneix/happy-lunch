@@ -80,7 +80,8 @@ export default class extends Service {
     } else {
       res.success = true;
       (res.result as Result).personNum = (data as ResponseDataSuccess).person_num;
-      (res.result as Result).image = (data as ResponseDataSuccess).image;
+      // (res.result as Result).image = (data as ResponseDataSuccess).image;
+      (res.result as Result).image = '';
       return this.handleResult(res);
     }
   }
