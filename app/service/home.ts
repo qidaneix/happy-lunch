@@ -1,4 +1,3 @@
-import * as dayjs from 'dayjs';
 import { Service } from 'egg';
 import * as fs from 'mz/fs';
 
@@ -45,16 +44,6 @@ export default class extends Service {
       },
       msg: '',
     };
-    // 服务时间：7:30 ~ 20:00
-    const now = dayjs();
-    const startTime = now.clone().set('hour', 7).set('minute', 30).set('second', 0).set('millisecond', 0);
-    const endTime = now.clone().set('hour', 20).set('minute', 0).set('second', 0).set('millisecond', 0);
-    // 非服务时间报错
-    if (now.isBefore(startTime) || now.isAfter(endTime)) {
-      res.success = false;
-      res.msg = 'sorry, not the serivce time';
-      return this.handleResult(res);
-    }
     // 百度AI
     const aiConfig = this.config.aiConfig;
     const { ctx, app } = this;
