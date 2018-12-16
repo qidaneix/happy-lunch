@@ -18,14 +18,16 @@
   let socket = io();
   socket.on('res', (res) => {
     msg = JSON.parse(res);
-    const info = document.getElementById('info');
-    info.innerHTML = JSON.stringify({
+    const data = {
       success: msg.success,
       result: {
         personNum: msg.result.personNum,
       },
       msg: msg.msg,
-    });
+    }
+    console.log(data);
+    const info = document.getElementById('info');
+    info.innerHTML = JSON.stringify(data);
     const img = document.getElementById('img');
     img.src = 'data:image/jpg;base64, ' + msg.result.image;
   });
