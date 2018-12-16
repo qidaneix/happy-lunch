@@ -21,7 +21,14 @@ export default class HomeController extends Controller {
     const { ctx } = this;
     const file = (ctx.request as any).files[0];
     try {
-      ctx.body = await ctx.service.home.image(file.filepath);
+      const res = await ctx.service.home.image(file.filepath);
+      ctx.body = {
+        success: res.success,
+        result: {
+          personNum: res.result.personNum,
+        },
+        msg: res.msg,
+      };
     } finally {
       await fs.unlink(file.filepath);
     }

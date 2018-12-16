@@ -7,13 +7,27 @@
   <title>Document</title>
 </head>
 <body>
+  <div id="content">
+    <p id="info"></p>
+    <img id="img" src="data:image/jpg;base64, ">
+  </div>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
   <script>
   axios.get('/res').then((resp) => { console.log(resp.data) });
   let socket = io();
-  socket.on('res', (msg) => {
-    console.log(msg);
+  socket.on('res', (res) => {
+    msg = JSON.parse(res);
+    const info = document.getElementById('info');
+    info.innerHTML = JSON.stringify({
+      success: msg.success,
+      result: {
+        personNum: msg.result.personNum,
+      },
+      msg: msg.msg,
+    });
+    const img = document.getElementById('img');
+    img.src = 'data:image/jpg;base64, ' + msg.result.image;
   });
   </script>
 </body>
