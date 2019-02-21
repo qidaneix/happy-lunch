@@ -7,6 +7,11 @@ export default class HomeController extends Controller {
     await ctx.render('home/index.nj');
   }
 
+  public async test() {
+    const { ctx } = this;
+    await ctx.render('home/test.nj');
+  }
+
   public async init() {
     const { ctx } = this;
     await ctx.render('home/init.nj');
