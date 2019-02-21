@@ -7,4 +7,5 @@ export default (app: Application) => {
   router.post('/image', controller.home.image);
   router.get('/res', controller.home.res);
   router.get('/', controller.home.index);
+  router.get('/test', controller.home.test);
 };
